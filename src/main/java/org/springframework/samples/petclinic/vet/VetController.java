@@ -53,7 +53,6 @@ class VetController {
 
 	private String addPaginationModel(int page, Page<Vet> paginated, Model model) {
 		// Get content for page object
-		// this is a test comment to trigger the analysis
 		List<Vet> listVets = paginated.getContent();
 		model.addAttribute("currentPage", page);
 		model.addAttribute("totalPages", paginated.getTotalPages());
@@ -61,9 +60,13 @@ class VetController {
 		model.addAttribute("listVets", listVets);
 		return "vets/vetList";
 	}
+	
 
 	private Page<Vet> findPaginated(int page) {
 		int pageSize = 5;
+		//test changes
+		int count = 10;
+		System.out.println("count: " + count);
 		Pageable pageable = PageRequest.of(page - 1, pageSize);
 		return vetRepository.findAll(pageable);
 	}
